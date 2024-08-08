@@ -16,7 +16,6 @@ const SearchPage: NextPage<Props> = async ({ searchParams }) => {
   if (!response.ok) throw new Error('Failed to fetch data from BFF');
 
   const data = await response.json();
-  // TODO: Show the data
   
   return <div>List of products</div>
 }
