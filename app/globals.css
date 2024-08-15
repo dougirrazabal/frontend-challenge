@@ -17,3 +17,15 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+header {
+  display: grid;
+  justify-content: center;
+  min-height: 8vh;
+  background-color: #ffe600;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
