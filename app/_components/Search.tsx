@@ -15,6 +15,9 @@ const SearchBar: NextPage<Props> = ({}) => {
 
   const onSearch = (event: React.FormEvent) => {
     event.preventDefault();
+
+    if(search === '') return null;
+
     const params = new URLSearchParams(searchParams);
     
     params.set('search', search);
