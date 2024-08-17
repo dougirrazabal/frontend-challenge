@@ -8,7 +8,7 @@ import styles from './search.module.css'
 
 interface Props {}
 
-const SearchBar: NextPage<Props> = ({}) => {
+const Search: NextPage<Props> = ({}) => {
   const [search, setSearch] = useState('');
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -39,4 +39,4 @@ const SearchBar: NextPage<Props> = ({}) => {
   </form>
 }
 
-export default SearchBar
+export default Search

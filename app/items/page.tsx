@@ -1,4 +1,6 @@
 import { NextPage } from 'next'
+import { ItemsResponse } from '../_types/ItemsResponse';
+import ItemList from '../_components/ItemList';
 
 const { URL } = process.env;
 
@@ -16,9 +18,11 @@ const ItemsPage: NextPage<Props> = async ({ searchParams }) => {
 
   if (!response.ok) throw new Error('Failed to fetch data from BFF');
 
-  const data = await response.json();
+  const data = (await response.json()) as ItemsResponse;
+  const { categories, items } = data;
   
-  return <div>List of products</div>
+  return <div>
+  </div>
 }
 
 export default ItemsPage
