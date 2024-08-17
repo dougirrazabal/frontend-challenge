@@ -1,14 +1,15 @@
 import { NextPage } from 'next'
 
+const { URL } = process.env;
+
 interface Props {
   searchParams: {
     search: string;
   };
 }
 
-const SearchPage: NextPage<Props> = async ({ searchParams }) => {
+const ItemsPage: NextPage<Props> = async ({ searchParams }) => {
   const encodedSearchQuery = encodeURI(searchParams.search);
-  const { URL } = process.env;
   const API_URL = `${URL}/api/items?q=${encodedSearchQuery}`;
 
   const response = await fetch(API_URL);
@@ -20,4 +21,4 @@ const SearchPage: NextPage<Props> = async ({ searchParams }) => {
   return <div>List of products</div>
 }
 
-export default SearchPage
+export default ItemsPage

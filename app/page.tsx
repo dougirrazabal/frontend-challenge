@@ -1,10 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
-  return (
-    <section className={styles.main}>
-      <h3>Please search a product</h3>
-    </section>
-  );
+  return null;
 }

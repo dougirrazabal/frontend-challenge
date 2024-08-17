@@ -1,19 +1,20 @@
-import { SearchItemsResponseDTO } from "@/app/_dtos/SearchItemsResponseDTO";
+import { Item } from "@/app/_types/Item";
+import { ItemsResponse } from "@/app/_types/ItemsResponse";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
-        const rawData = await fetchSearchItems(searchParams);
-        const SearchItemsResponseDTO = mapToSearchItemsResponseDTO(rawData);
+        const data = await fetchItemList(searchParams);
+        const items = mapToItemsResponse(data);
 
-        return NextResponse.json(SearchItemsResponseDTO);
+        return NextResponse.json(items);
     } catch (error) {
         return NextResponse.json({ message: (error as Error).message }, { status: 500 });
     }
 }
 
-const fetchSearchItems = async (searchParams: URLSearchParams): Promise<any> => {
+const fetchItemList = async (searchParams: URLSearchParams): Promise<any> => {
     const API_URL = `https://api.mercadolibre.com/sites/MLA/search?${searchParams.toString()}&limit=4`;
     const response = await fetch(API_URL);
 
@@ -22,7 +23,7 @@ const fetchSearchItems = async (searchParams: URLSearchParams): Promise<any> => 
     return response.json();
 }
 
-const mapToSearchItemsResponseDTO = (rawData: any): SearchItemsResponseDTO => {
+const mapToItemsResponse = (rawData: any): ItemsResponse => {
     const categories = rawData.available_filters.find((filter: any) => filter.id === 'category')?.values.map((value: any) => value.name) || [];
 
     const items = rawData.results.map((item: any) => ({
@@ -36,7 +37,7 @@ const mapToSearchItemsResponseDTO = (rawData: any): SearchItemsResponseDTO => {
         picture: item.thumbnail,
         condition: item.condition,
         free_shipping: item.shipping.free_shipping,
-    }));
+    })) as Item[];
 
     return {
         author: {
