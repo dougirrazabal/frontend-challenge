@@ -22,6 +22,7 @@ const ItemsPage: NextPage<Props> = async ({ searchParams }) => {
   const { categories, items } = data;
   
   return <div>
+    <ItemList items={items} />
   </div>
 }
 

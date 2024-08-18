@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.8em;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.item_image {
+    order: 1;
+    justify-self: center;
+}
+
+.item_info {
+    order: 2;
+}
+
+.item_info h2 {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item_info__price {}
