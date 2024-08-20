@@ -22,9 +22,7 @@ const ItemList: NextPage<Props> = ({ items }) => {
           <div className={styles.item_info}>
             <h2>{item.title}</h2>
             <div className={styles.item_info__price}>
-              <span>{item.price.currency}</span>
               <span>{item.price.amount}</span>
-              <span>{item.price.decimals}</span>
             </div>
           </div>
         </div>

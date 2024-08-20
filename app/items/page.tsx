@@ -1,6 +1,8 @@
 import { NextPage } from 'next'
 import { ItemsResponse } from '../_types/ItemsResponse';
 import ItemList from '../_components/ItemList';
+import { Suspense } from 'react';
+import ItemListSkeleton from '../_components/ItemListSkeleton';
 
 const { URL } = process.env;
 
@@ -20,9 +22,13 @@ const ItemsPage: NextPage<Props> = async ({ searchParams }) => {
 
   const data = (await response.json()) as ItemsResponse;
   const { categories, items } = data;
+
+  // TODO: handle when items variable is empty
   
   return <div>
-    <ItemList items={items} />
+    <Suspense fallback={<ItemListSkeleton />}>
+      <ItemList items={items} />
+    </Suspense>
   </div>
 }
 
