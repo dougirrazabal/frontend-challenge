@@ -19,10 +19,11 @@
     order: 2;
 }
 
-.item_info h2 {
+.item_info__title {
     color: #333;
     font-size: 14px;
     font-weight: 300;
+    text-decoration: none;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -30,5 +31,3 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.item_info__price {}
