@@ -1,5 +1,5 @@
-import { Item } from "@/app/_types/Item";
-import { ItemsResponse } from "@/app/_types/ItemsResponse";
+import { Item } from "@/_types/Item";
+import { ItemsResponse } from "@/_types/ItemsResponse";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {

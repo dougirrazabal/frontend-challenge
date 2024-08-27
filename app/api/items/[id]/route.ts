@@ -1,5 +1,5 @@
-import { Item } from "@/app/_types/Item";
-import { ItemByIdResponse } from "@/app/_types/ItemByIdResponse";
+import { Item } from "@/_types/Item";
+import { ItemByIdResponse } from "@/_types/ItemByIdResponse";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
@@ -46,7 +46,7 @@ const mapToItemByIdResponse = (itemData: any, descriptionData: any): ItemByIdRes
         picture: itemData.thumbnail,
         condition: itemData.condition,
         free_shipping: itemData.shipping.free_shipping,
-        sold_quantity: itemData.sold_quantity || 0, // I couldn't find this property in the external API
+        sold_quantity: itemData.sold_quantity || 0, // I couldn't found this property in the external API
         description: descriptionData.plain_text,
     };
 

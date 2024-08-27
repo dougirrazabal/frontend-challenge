@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Search from "./_components/Search";
+import Search from "@/_components/Search";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Frontend Challenge",
-  description: "",
+  description: "Build with Nextjs 14",
 };
 
 export default function RootLayout({
