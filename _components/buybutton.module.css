@@ -1,0 +1,13 @@
+.buybutton {
+    cursor: pointer;
+    background-color: #3483fa;
+    border-color: transparent;
+    border-radius: 4px;;
+    color: #fff;
+    padding: 0.8rem;
+}
+
+.buybutton span {
+    font-size: 16px;
+    font-weight: 600;
+}

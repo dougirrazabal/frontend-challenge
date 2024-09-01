@@ -1,0 +1,28 @@
+.item_container {
+    display: grid;
+}
+
+.item_header {
+    padding: 1rem 1rem 0 1rem;
+    display: grid;
+    row-gap: 0.5rem;
+}
+
+.item_image {
+    display: flex;
+    justify-content: center;
+}
+
+.item_buybox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem;
+}
+
+.item_description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.2rem 1rem 1rem 1rem;
+}
