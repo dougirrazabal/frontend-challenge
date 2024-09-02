@@ -1,26 +1,32 @@
-.item_container {
-    display: grid;
+.item_detail__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.item_header {
+.pdp_container {
+    max-width: 900px;
+}
+
+.pdp_header {
     padding: 1rem 1rem 0 1rem;
     display: grid;
     row-gap: 0.5rem;
 }
 
-.item_image {
+.pdp_image {
     display: flex;
     justify-content: center;
 }
 
-.item_buybox {
+.pdp_buybox {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
     margin: 1rem;
 }
 
-.item_description {
+.pdp_description {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

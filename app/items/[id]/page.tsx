@@ -15,18 +15,18 @@ interface Props {
   };
 }
 
-const ItemPage: NextPage<Props> = async ({ params: { id } }) => {
+const ItemDetailPage: NextPage<Props> = async ({ params: { id } }) => {
   const data = await getItemById(id);
   const { item } = data;
 
-  return <div>
+  return <div className={styles.item_detail__container}>
     <Suspense fallback="loading...">
-      <div key={item.id} className={styles.item_container}>
-        <div className={styles.item_header}>
+      <div key={item.id} className={styles.pdp_container}>
+        <div className={styles.pdp_header}>
           <Subtitle content={item.condition} />
           <Title content={item.title} />
         </div>
-        <div className={styles.item_image}>
+        <div className={styles.pdp_image}>
           <Image
             src={item.picture}
             width={280}
@@ -34,11 +34,11 @@ const ItemPage: NextPage<Props> = async ({ params: { id } }) => {
             alt={`Picture of ${item.title}`}
           />
         </div>
-        <div className={styles.item_buybox}>
+        <div className={styles.pdp_buybox}>
           <Price content={item.price} />
           <BuyButton content="Comprar ahora" />
         </div>
-        <div className={styles.item_description}>
+        <div className={styles.pdp_description}>
           <Description content={item.description || ''} />
         </div>
       </div>
@@ -46,4 +46,4 @@ const ItemPage: NextPage<Props> = async ({ params: { id } }) => {
   </div>
 }
 
-export default ItemPage
+export default ItemDetailPage

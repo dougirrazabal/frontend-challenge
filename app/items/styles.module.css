@@ -1,0 +1,10 @@
+.item_list__container {
+    
+}
+
+.plp_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    row-gap: 0.5rem;
+}
