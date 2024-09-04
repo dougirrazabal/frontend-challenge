@@ -9,9 +9,11 @@
 }
 
 .pdp_header {
-    padding: 1rem 1rem 0 1rem;
     display: grid;
+    min-height: auto;
+    align-content: center;
     row-gap: 0.5rem;
+    padding: 1rem 1rem 0 1rem;
 }
 
 .pdp_image {
@@ -31,4 +33,31 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.2rem 1rem 1rem 1rem;
+}
+
+@media (min-width: 36em) {
+    .pdp_container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "image image header"
+            "image image buybox"
+            "description description description";
+    }
+
+    .pdp_image {
+        grid-area: image;
+    }
+
+    .pdp_header {
+        grid-area: header;
+    }
+
+    .pdp_buybox {
+        grid-area: buybox;
+    }
+
+    .pdp_description {
+        grid-area: description;
+    }
 }
