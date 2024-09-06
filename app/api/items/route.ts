@@ -18,13 +18,13 @@ const fetchItemList = async (searchParams: URLSearchParams): Promise<any> => {
     const API_URL = `https://api.mercadolibre.com/sites/MLA/search?${searchParams.toString()}&limit=4`;
     const response = await fetch(API_URL);
 
-    if(!response.ok) throw new Error('Failed to fetch data from external API')
+    if (!response.ok) throw new Error('Failed to fetch data from external API')
 
     return response.json();
 }
 
 const mapToItemsResponse = (rawData: any): ItemsResponse => {
-    const categories = rawData.available_filters.find((filter: any) => filter.id === 'category')?.values.map((value: any) => value.name) || [];
+    const categories = rawData.filters.find((filter: any) => filter.id === 'category')?.values || [];
 
     const items = rawData.results.map((item: any) => ({
         id: item.id,
