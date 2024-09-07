@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { CgSearch } from "react-icons/cg";
 import styles from './search.module.css'
 
-interface Props {}
+interface Props { }
 
-const Search: NextPage<Props> = ({}) => {
+const Search: NextPage<Props> = ({ }) => {
   const [search, setSearch] = useState('');
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -16,12 +16,12 @@ const Search: NextPage<Props> = ({}) => {
   const onSearch = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if(search === '') return null;
+    if (search === '') return null;
 
     const params = new URLSearchParams(searchParams);
-    
+
     params.set('search', search);
-    
+
     router.push(`/items?${params.toString()}`);
   }
 

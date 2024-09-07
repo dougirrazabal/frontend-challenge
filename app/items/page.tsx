@@ -10,21 +10,19 @@ interface Props {
   };
 }
 
-const ItemListPage: NextPage<Props> = async ({ searchParams }) => {
+const ProductListPage: NextPage<Props> = async ({ searchParams }) => {
   const data = await getItemsBySearch(searchParams.search);
   const { categories, items } = data;
 
   // TODO: handle when items variable is empty
 
-  return <div className={styles.item_list__container}>
-    <Suspense fallback="loading...">
-      <div className={styles.plp_container}>
-        {items.map((item) => (
-          <ItemList key={item.id} item={item} />
-        ))}
-      </div>
-    </Suspense>
-  </div>
+  return (
+    <section className={styles.plp_page__container}>
+      <Suspense fallback="loading...">
+        <ItemList data={items} />
+      </Suspense>
+    </section>
+  )
 }
 
-export default ItemListPage
+export default ProductListPage
