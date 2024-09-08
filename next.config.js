@@ -1,4 +1,8 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: "/frontend-challenge",
+  output: "export",  // enables static exports
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -7,4 +11,6 @@ module.exports = {
       }
     ],
   },
-}
+};
+
+module.exports = nextConfig;
