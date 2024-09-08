@@ -1,5 +1,10 @@
 module.exports = {
-    images: {
-      domains: ['http2.mlstatic.com'],
-    },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "http2.mlstatic.com",
+      }
+    ],
+  },
 }
